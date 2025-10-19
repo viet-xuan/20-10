@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bức Thư Gấp Đôi 💌</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(180deg, #fff6f8, #ffe2e8);
+      font-family: "Poppins", sans-serif;
+    }
+
+    .envelope {
+      position: relative;
+      width: 340px;
+      height: 220px;
+      background: #ffb6c1;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: all 1s ease;
+    }
+
+    .flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background: #ffa6b3;
+      clip-path: polygon(0 0, 50% 100%, 100% 0);
+      transform-origin: top;
+      transition: transform 1s ease;
+    }
+
+    .envelope.open .flap {
+      transform: rotateX(180deg);
+    }
+
+    .letter {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      background: #fff;
+      border-radius: 6px;
+      padding: 20px;
+      box-sizing: border-box;
+      opacity: 0;
+      overflow: hidden;
+      transition: all 1s ease;
+      box-shadow: inset 0 0 8px rgba(0,0,0,0.1);
+      background-image: url('https://png.pngtree.com/png-vector/20240206/ourmid/pngtree-pink-flower-border-png-image_11528683.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .envelope.open .letter {
+      height: 350px;
+      opacity: 1;
+    }
+
+    .letter-content {
+      opacity: 0;
+      transition: opacity 1s ease 0.5s;
+    }
+
+    .envelope.open .letter-content {
+      opacity: 1;
+    }
+
+    .letter h2 {
+      color: #e91e63;
+      text-align: center;
+      margin-top: 0;
+    }
+
+    .photo {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .photo img {
+      width: 120px;
+      border-radius: 8px;
+      transform: rotate(-5deg);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    }
+
+    .flower {
+      position: absolute;
+      bottom: -60px;
+      left: -40px;
+      width: 150px;
+      opacity: 0.9;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="envelope" id="envelope">
+    <div class="flap"></div>
+    <div class="letter">
+      <div class="letter-content">
+        <h2>💖 Gửi Em 💖</h2>
+        <p>Em yêu của anh,</p>
+        <p>Ngày Phụ nữ Việt Nam 20/10 lại đến, anh muốn gửi đến em những lời chân thành nhất. Có lẽ anh không giỏi nói lời ngọt ngào mỗi ngày, nhưng trong lòng anh luôn biết rằng em là điều quý giá nhất.</p>
+        <p>Từ khi em bước vào cuộc đời anh, mọi thứ trở nên đủ đầy và ấm áp hơn. Anh biết, để có một gia đình yên ấm như hôm nay, em đã vất vả rất nhiều. Cảm ơn em vì tất cả. 💌</p>
+        <div class="photo">
+          <img src="img/anh1.jpg" alt="photo" /> 
+        </div>
+      </div>
+    </div>
+    <img src="img/anh2.jpg" alt="hoa"> 
+  </div>
+
+  <script>
+    const envelope = document.getElementById("envelope");
+    envelope.addEventListener("click", () => {
+      envelope.classList.toggle("open");
+    });
+  </script>
+
+</body>
+</html>
